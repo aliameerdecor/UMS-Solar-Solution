@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UMS Solar Solutions — Engineered Solar, Net-Metering & Hybrid Systems | Lahore</title>
+<meta name="description" content="UMS Solar Solutions designs and deploys high-efficiency PV, net-metering, and hybrid microgrid systems for residential, commercial, and industrial properties in Lahore. Engineering precision, measurable ROI.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #0B0F14; --bg-panel: #121924; --bg-elevated: #1A2432;
+    --line: rgba(243,241,234,0.09); --line-strong: rgba(243,241,234,0.16);
+    --text: #F3F1EA; --text-muted: #9AA3B0; --text-faint: #5C6675;
+    --gold: #E8A93E; --gold-dim: #8A6A2E; --cyan: #4FC7CE; --cyan-dim: #2E6E72;
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --maxw: 1180px;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; background:var(--bg); }
+  body{ margin:0; color:var(--text); font-family:'Inter',system-ui,sans-serif; font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ margin:0; padding:0; list-style:none; }
+  h1,h2,h3,h4{ font-family:'Space Grotesk',sans-serif; font-weight:600; line-height:1.12; margin:0; letter-spacing:-0.01em; }
+  .mono{ font-family:'JetBrains Mono',monospace; letter-spacing:0.04em; }
+  .eyebrow{ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--cyan); display:flex; align-items:center; gap:10px; }
+  .eyebrow::before{ content:""; width:18px; height:1px; background:var(--cyan); display:inline-block; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+  section{ position:relative; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; border-radius:4px; }
+  @media (prefers-reduced-motion: reduce){ *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; } }
+
+  .bg-fx{ position:fixed; inset:0; z-index:-1; overflow:hidden; background:var(--bg); }
+  .bg-glow{ position:absolute; border-radius:50%; filter:blur(100px); will-change:transform, opacity; }
+  .bg-glow.gold{ width:640px; height:640px; top:-180px; right:-160px; background:radial-gradient(circle, var(--gold) 0%, transparent 70%); animation:glowPulse 9s ease-in-out infinite; }
+  .bg-glow.cyan{ width:560px; height:560px; bottom:-200px; left:-160px; background:radial-gradient(circle, var(--cyan) 0%, transparent 70%); animation:glowPulse 12s ease-in-out infinite; animation-delay:2.4s; }
+  @keyframes glowPulse{ 0%,100%{ transform:scale(1); opacity:0.22; } 50%{ transform:scale(1.18); opacity:0.38; } }
+  .bg-rays{ position:absolute; top:-260px; right:-260px; width:900px; height:900px; border-radius:50%; opacity:0.055; background:repeating-conic-gradient(from 0deg, var(--gold) 0deg 2deg, transparent 2deg 15deg); animation:raySpin 110s linear infinite; }
+  @keyframes raySpin{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
+  .bg-particle{ position:absolute; border-radius:50%; filter:blur(1px); opacity:0; animation-name:particleFloat; animation-timing-function:ease-in-out; animation-iteration-count:infinite; }
+  @keyframes particleFloat{ 0%{ transform:translateY(0) translateX(0); opacity:0; } 12%{ opacity:0.7; } 88%{ opacity:0.5; } 100%{ transform:translateY(-160px) translateX(24px); opacity:0; } }
+
+  .cell-grid{ display:grid; grid-template-columns:repeat(10, 1fr); gap:5px; }
+  .cell{ aspect-ratio:1; background:var(--bg-elevated); border:1px solid var(--line); border-radius:3px; }
+  .cell-grid.lit .cell{ animation:cellGlow 5.5s ease-in-out infinite; animation-delay:calc(var(--i) * 70ms); }
+  .cell-strip{ grid-template-columns:repeat(40,1fr); gap:3px; opacity:0.55; }
+  .cell-strip .cell{ aspect-ratio:auto; height:5px; border-radius:1px; }
+  @keyframes cellGlow{ 0%, 92%, 100%{ background:var(--bg-elevated); border-color:var(--line); } 12%{ background:var(--gold-dim); border-color:var(--gold); box-shadow:0 0 10px -2px var(--gold); } }
+
+  header{ position:sticky; top:0; z-index:100; background:rgba(11,15,20,0.82); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 0; }
+  .brand{ display:flex; align-items:center; gap:12px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; letter-spacing:0.02em; }
+  .brand-mark{ width:30px; height:30px; border-radius:50%; flex-shrink:0; overflow:hidden; box-shadow:0 0 0 1px var(--line-strong), 0 0 14px -2px rgba(232,169,62,0.5); }
+  .brand-mark img{ width:100%; height:100%; object-fit:cover; }
+  .nav-links{ display:flex; align-items:center; gap:34px; }
+  .nav-links a{ font-size:14px; color:var(--text-muted); transition:color .15s ease; }
+  .nav-links a:hover{ color:var(--text); }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 22px; border-radius:var(--radius-sm); font-size:14px; font-weight:600; font-family:'Inter',sans-serif; cursor:pointer; border:1px solid transparent; transition:transform .15s ease, background .15s ease, border-color .15s ease; white-space:nowrap; }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn-primary{ background:var(--gold); color:#191204; }
+  .btn-primary:hover{ background:#f2b750; }
+  .btn-ghost{ border-color:var(--line-strong); color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--cyan); color:var(--cyan); }
+  .btn-sm{ padding:9px 16px; font-size:13px; }
+  .nav-cta{ display:flex; align-items:center; gap:14px; }
+  .menu-toggle{ display:none; background:none; border:1px solid var(--line-strong); border-radius:var(--radius-sm); padding:9px 11px; cursor:pointer; }
+  .menu-toggle span{ display:block; width:18px; height:2px; background:var(--text); margin:3px 0; }
+
+  .hero{ padding:88px 0 90px; overflow:hidden; position:relative; }
+  .hero-bg{ position:absolute; inset:0; z-index:0; }
+  .hero-bg img{ width:100%; height:100%; object-fit:cover; opacity:0.22; }
+  .hero-bg::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, var(--bg) 0%, rgba(11,15,20,0.75) 45%, var(--bg) 100%); }
+  .hero-grid{ position:relative; z-index:1; display:grid; grid-template-columns:1.05fr 0.85fr; gap:64px; align-items:center; }
+  .hero h1{ font-size:clamp(34px, 4.6vw, 56px); margin:20px 0 22px; }
+  .hero h1 .accent{ color:var(--gold); }
+  .hero p.lead{ font-size:17px; color:var(--text-muted); max-width:520px; margin-bottom:34px; }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px; }
+  .badge-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .badge{ font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:0.03em; color:var(--text-muted); border:1px solid var(--line-strong); border-radius:999px; padding:7px 14px; display:flex; align-items:center; gap:7px; }
+  .badge::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--cyan); }
+
+  .hero-visual{ background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius-lg); padding:22px; position:relative; }
+  .hero-visual-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+  .hero-visual-head .label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:var(--text-faint); text-transform:uppercase; }
+  .status-dot{ display:flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--cyan); }
+  .status-dot i{ width:7px; height:7px; border-radius:50%; background:var(--cyan); box-shadow:0 0 8px var(--cyan); display:inline-block; }
+
+  .hero-photo{ position:relative; border-radius:var(--radius-md); overflow:hidden; aspect-ratio:4/5; background:var(--bg-elevated); }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; }
+  .hero-badge{ position:absolute; top:-18px; right:-16px; width:92px; height:92px; border-radius:22px; overflow:hidden; transform:rotate(-6deg); box-shadow:0 10px 30px -8px rgba(0,0,0,0.6), 0 0 0 1px var(--line-strong); background:var(--bg-panel); }
+  .hero-badge img{ width:100%; height:100%; object-fit:cover; }
+  .hero-photo-tag{ position:absolute; left:14px; bottom:14px; background:rgba(11,15,20,0.78); backdrop-filter:blur(6px); border:1px solid var(--line-strong); border-radius:999px; padding:7px 14px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--cyan); display:flex; align-items:center; gap:7px; }
+  .hero-photo-tag i{ width:6px; height:6px; border-radius:50%; background:var(--cyan); box-shadow:0 0 6px var(--cyan); display:inline-block; }
+
+  .readouts{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:14px; }
+  .readout{ background:var(--bg-elevated); border:1px solid var(--line); border-radius:var(--radius-md); padding:14px 16px; }
+  .readout .val{ font-family:'JetBrains Mono',monospace; font-size:18px; color:var(--gold); font-weight:500; }
+  .readout .val.cyan{ color:var(--cyan); }
+  .readout .lbl{ font-size:11.5px; color:var(--text-faint); margin-top:4px; }
+  .hero-visual-footnote{ font-size:11.5px; color:var(--text-muted); margin-top:14px; line-height:1.5; }
+
+  .sun-motif{ position:absolute; top:-40px; left:-56px; width:170px; height:170px; pointer-events:none; z-index:0; }
+  .sun-motif .core{ fill:var(--gold); opacity:0.9; animation:sunPulse 4.5s ease-in-out infinite; transform-origin:center; }
+  .sun-motif .ray{ stroke:var(--gold); stroke-width:2; stroke-linecap:round; opacity:0.55; }
+  .sun-motif .rays-group{ animation:sunSpin 40s linear infinite; transform-origin:center; }
+  @keyframes sunPulse{ 0%,100%{ transform:scale(1); opacity:0.85; } 50%{ transform:scale(1.12); opacity:1; } }
+  @keyframes sunSpin{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
+
+  .panel-motif{ position:absolute; right:-60px; bottom:-40px; width:420px; opacity:0.06; pointer-events:none; z-index:0; }
+  .panel-motif path, .panel-motif line{ stroke:var(--gold); fill:none; stroke-width:1.4; }
+  .band{ overflow:hidden; }
+
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.16,.8,.3,1), transform .7s cubic-bezier(.16,.8,.3,1); }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+
+  .section-head{ max-width:600px; margin-bottom:52px; position:relative; z-index:1; }
+  .section-head h2{ font-size:clamp(26px,3.2vw,38px); margin-top:14px; }
+  .section-head p{ color:var(--text-muted); margin-top:14px; font-size:15.5px; }
+  .band{ padding:100px 0; }
+  .band-alt{ background:var(--bg-panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+
+  .service-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden; }
+  .service-card{ background:var(--bg); padding:30px 26px; transition:background .18s ease, transform .25s ease, box-shadow .25s ease; position:relative; z-index:1; }
+  .band-alt .service-card{ background:var(--bg-panel); }
+  .service-card:hover{ background:var(--bg-elevated); transform:translateY(-4px); box-shadow:0 16px 32px -16px rgba(0,0,0,0.55); z-index:2; }
+  .service-card:hover .icon{ border-color:var(--gold); box-shadow:0 0 16px -4px var(--gold); }
+  .service-card .icon{ width:38px; height:38px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line-strong); border-radius:var(--radius-sm); margin-bottom:18px; color:var(--gold); transition:border-color .25s ease, box-shadow .25s ease; }
+  .service-card h3{ font-size:16.5px; margin-bottom:9px; }
+  .service-card p{ font-size:13.8px; color:var(--text-muted); margin:0; }
+
+  .gallery-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+  .gallery-item{ position:relative; border-radius:var(--radius-md); overflow:hidden; aspect-ratio:4/3; background:var(--bg-elevated); border:1px solid var(--line); transition:border-color .25s ease, transform .25s ease; }
+  .gallery-item:hover{ border-color:var(--gold-dim); transform:translateY(-3px); }
+  .gallery-item img{ width:100%; height:100%; object-fit:cover; transition:transform .4s ease; }
+  .gallery-item:hover img{ transform:scale(1.05); }
+  .gallery-item .cap{ position:absolute; left:0; right:0; bottom:0; padding:14px 16px 12px; background:linear-gradient(0deg, rgba(11,15,20,0.92) 0%, rgba(11,15,20,0) 100%); font-size:12.5px; color:var(--text); font-weight:500; }
+  .gallery-item.tall{ grid-row: span 2; aspect-ratio:auto; }
+
+  .process-list{ position:relative; }
+  .process-item{ display:grid; grid-template-columns:110px 1fr; gap:32px; padding:34px 0; border-top:1px solid var(--line); }
+  .process-item:last-child{ border-bottom:1px solid var(--line); }
+  .process-num{ font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--gold); padding-top:3px; }
+  .process-item h3{ font-size:19px; margin-bottom:10px; }
+  .process-item p{ color:var(--text-muted); font-size:14.5px; max-width:640px; margin:0; }
+
+  .why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  .why-card{ border:1px solid var(--line); border-radius:var(--radius-lg); padding:26px 22px; background:var(--bg-panel); transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+  .why-card:hover{ transform:translateY(-4px); border-color:var(--cyan-dim); box-shadow:0 16px 32px -16px rgba(0,0,0,0.55); }
+  .why-card .mark{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--cyan); letter-spacing:0.08em; }
+  .why-card h3{ font-size:16px; margin:14px 0 10px; }
+  .why-card p{ font-size:13.5px; color:var(--text-muted); margin:0; }
+
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+  .contact-list{ margin-top:26px; }
+  .contact-list li{ display:flex; gap:14px; padding:16px 0; border-top:1px solid var(--line); font-size:14.5px; }
+  .contact-list li:last-child{ border-bottom:1px solid var(--line); }
+  .contact-list .k{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.08em; width:110px; flex-shrink:0; padding-top:2px; }
+  .contact-list a:hover{ color:var(--cyan); }
+  .social-row{ display:flex; gap:10px; margin-top:24px; }
+  .social-row a{ width:38px; height:38px; border:1px solid var(--line-strong); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:border-color .15s ease, color .15s ease; }
+  .social-row a:hover{ border-color:var(--cyan); color:var(--cyan); }
+  .form-panel{ background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius-lg); padding:30px; }
+  .form-row{ margin-bottom:16px; }
+  .form-row label{ display:block; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-faint); margin-bottom:8px; }
+  .form-row input, .form-row textarea, .form-row select{ width:100%; background:var(--bg-elevated); border:1px solid var(--line-strong); border-radius:var(--radius-sm); padding:12px 14px; color:var(--text); font-family:'Inter',sans-serif; font-size:14px; }
+  .form-row input:focus, .form-row textarea:focus, .form-row select:focus{ outline:none; border-color:var(--cyan); }
+  .form-row textarea{ resize:vertical; min-height:90px; }
+  .form-note{ font-size:12px; color:var(--text-faint); margin-top:14px; }
+
+  .estimator{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-panel); }
+  .estimator-input{ padding:38px; border-right:1px solid var(--line); }
+  .estimator-input label{ display:block; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-faint); margin-bottom:12px; }
+  .estimator-field{ display:flex; align-items:center; gap:10px; background:var(--bg-elevated); border:1px solid var(--line-strong); border-radius:var(--radius-sm); padding:14px 16px; margin-bottom:18px; }
+  .estimator-field span{ font-family:'JetBrains Mono',monospace; color:var(--text-faint); font-size:14px; }
+  .estimator-field input{ flex:1; background:none; border:none; outline:none; color:var(--text); font-family:'JetBrains Mono',monospace; font-size:18px; width:100%; }
+  .estimator-slider{ width:100%; accent-color:var(--gold); margin-bottom:6px; }
+  .estimator-hint{ font-size:12px; color:var(--text-faint); }
+  .estimator-output{ padding:38px; display:flex; flex-direction:column; justify-content:center; }
+  .estimator-output .eo-label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-faint); margin-bottom:10px; }
+  .estimator-range{ font-family:'Space Grotesk',sans-serif; font-size:clamp(26px,3vw,34px); color:var(--gold); font-weight:600; margin-bottom:6px; }
+  .estimator-range span{ color:var(--cyan); }
+  .estimator-sub{ font-size:13px; color:var(--text-muted); margin-bottom:24px; }
+  .estimator-disclaimer{ font-size:11.5px; color:var(--text-faint); line-height:1.6; border-top:1px solid var(--line); padding-top:16px; }
+  @media (max-width:900px){ .estimator{ grid-template-columns:1fr; } .estimator-input{ border-right:none; border-bottom:1px solid var(--line); } }
+
+  footer{ border-top:1px solid var(--line); padding:36px 0; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+  .footer-row p{ font-size:12.5px; color:var(--text-faint); margin:0; }
+  .footer-brand{ display:flex; align-items:center; gap:10px; }
+  .footer-brand img{ width:24px; height:24px; border-radius:50%; box-shadow:0 0 0 1px var(--line-strong); }
+
+  @media (max-width: 900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero{ padding:52px 0 60px; }
+    .service-grid{ grid-template-columns:repeat(2,1fr); }
+    .why-grid{ grid-template-columns:repeat(2,1fr); }
+    .contact-grid{ grid-template-columns:1fr; gap:40px; }
+    .nav-links{ display:none; }
+    .menu-toggle{ display:block; }
+    .band{ padding:70px 0; }
+  }
+  @media (max-width: 560px){
+    .service-grid{ grid-template-columns:1fr; }
+    .why-grid{ grid-template-columns:1fr; }
+    .process-item{ grid-template-columns:1fr; gap:8px; }
+    .readouts{ grid-template-columns:1fr 1fr; }
+    .cell-grid{ grid-template-columns:repeat(6,1fr); }
+    .hero-actions .btn{ width:100%; }
+    .hero-badge{ width:64px; height:64px; top:-12px; right:-8px; border-radius:16px; }
+    .bg-glow.gold{ width:420px; height:420px; }
+    .bg-glow.cyan{ width:380px; height:380px; }
+    .bg-rays{ width:600px; height:600px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true">
+  <div class="bg-glow gold"></div>
+  <div class="bg-glow cyan"></div>
+  <div class="bg-rays"></div>
+  <span class="bg-particle" style="width:5px;height:5px;top:18%;left:12%;background:var(--gold);animation-duration:14s;animation-delay:0s;"></span>
+  <span class="bg-particle" style="width:3px;height:3px;top:64%;left:22%;background:var(--cyan);animation-duration:11s;animation-delay:2s;"></span>
+  <span class="bg-particle" style="width:4px;height:4px;top:32%;left:78%;background:var(--gold);animation-duration:16s;animation-delay:4s;"></span>
+  <span class="bg-particle" style="width:3px;height:3px;top:78%;left:66%;background:var(--cyan);animation-duration:13s;animation-delay:1s;"></span>
+  <span class="bg-particle" style="width:4px;height:4px;top:50%;left:48%;background:var(--gold);animation-duration:18s;animation-delay:6s;"></span>
+  <span class="bg-particle" style="width:3px;height:3px;top:10%;left:60%;background:var(--cyan);animation-duration:12s;animation-delay:3s;"></span>
+</div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="brand">
+        <span class="brand-mark">
+          <img src="assets/logo-mark.png" alt="UMS Solar Solutions logo">
+        </span>
+        UMS SOLAR SOLUTIONS
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#why">Why UMS</a></li>
+        <li><a href="#estimate">Estimate</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="https://wa.me/923214920052" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#contact" class="btn btn-primary btn-sm">Request Audit</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div id="mobileMenu" style="display:none; background:var(--bg-panel); border-bottom:1px solid var(--line);">
+  <div class="wrap" style="padding:18px 28px; display:flex; flex-direction:column; gap:16px;">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#process">Process</a>
+    <a href="#why">Why UMS</a>
+    <a href="#estimate">Estimate</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="assets/panel-array-blue-sky.jpg" alt="">
+  </div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div style="position:relative;">
+        <svg class="sun-motif" viewBox="0 0 170 170" aria-hidden="true">
+          <g class="rays-group">
+            <line class="ray" x1="85" y1="6" x2="85" y2="26"/>
+            <line class="ray" x1="85" y1="144" x2="85" y2="164"/>
+            <line class="ray" x1="6" y1="85" x2="26" y2="85"/>
+            <line class="ray" x1="144" y1="85" x2="164" y2="85"/>
+            <line class="ray" x1="27" y1="27" x2="41" y2="41"/>
+            <line class="ray" x1="129" y1="129" x2="143" y2="143"/>
+            <line class="ray" x1="129" y1="41" x2="143" y2="27"/>
+            <line class="ray" x1="27" y1="143" x2="41" y2="129"/>
+          </g>
+          <circle class="core" cx="85" cy="85" r="30"/>
+        </svg>
+        <div class="eyebrow" style="position:relative;">Lahore · Residential, Commercial &amp; Industrial PV</div>
+        <h1 style="position:relative;">Solar engineering built on precision, <span class="accent">not promises.</span></h1>
+        <p class="lead">
+          UMS Solar Solutions designs and deploys high-efficiency PV, net-metering, and hybrid
+          microgrid systems — engineered against your load profile, structural constraints, and
+          long-term ROI, not just panel count.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Request a Site Audit</a>
+          <a href="#process" class="btn btn-ghost">See Our Process</a>
+        </div>
+        <div class="badge-row">
+          <span class="badge">Tier-1 Components</span>
+          <span class="badge">IP-Rated Engineering</span>
+          <span class="badge">Net-Metering Compliant</span>
+          <span class="badge">Real-Time Monitoring</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-visual-head">
+          <span class="label">From Our Installations</span>
+          <span class="status-dot"><i></i>Live Site Photo</span>
+        </div>
+
+        <div class="hero-photo">
+          <img src="assets/inverter-display-hero.jpg" alt="Hybrid inverter energy-flow display, installed by UMS Solar Solutions">
+          <span class="hero-photo-tag"><i></i>Grid → Battery → Home</span>
+          <span class="hero-badge"><img src="assets/logo-badge.png" alt="UMS Solar Solutions"></span>
+        </div>
+
+        <div class="readouts">
+          <div class="readout">
+            <div class="val cyan">Hybrid</div>
+            <div class="lbl">Configuration Class</div>
+          </div>
+          <div class="readout">
+            <div class="val">IP66</div>
+            <div class="lbl">Inverter Rating (outdoor)</div>
+          </div>
+        </div>
+        <p class="hero-visual-footnote">A live energy-flow readout from one of our installed hybrid inverters — grid, battery, and load monitored in real time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">What We Deliver</div>
+      <h2>Every phase of the system, engineered end to end.</h2>
+      <p>From first site audit to lifecycle maintenance, one engineering team owns the outcome — not a chain of subcontractors.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+        <h3>Site Audit &amp; System Design</h3>
+        <p>Shading analysis, structural load assessment, and utility bill history modeled into a precision PV layout sized to your real consumption pattern.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-6h4v6"/></svg></div>
+        <h3>Structure Fabrication &amp; Mounting</h3>
+        <p>Weather-resistant mounting structures fabricated and installed to match your roofline and architectural profile without compromising array angle.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+        <h3>Complete Electrical Installation</h3>
+        <p>Certified engineering crews handle full AC/DC wiring, inverter integration, and protective earthing — never treated as an optional line item.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="14" height="10" rx="1.5"/><path d="M17 10l4-2v8l-4-2"/></svg></div>
+        <h3>Transportation &amp; Logistics</h3>
+        <p>Panels, inverters, and mounting hardware sourced, insured, and delivered on a schedule aligned with your installation timeline.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Load Testing &amp; Quality Assurance</h3>
+        <p>Full electrical health checks and load testing before handover, confirming performance against the original design specification.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg></div>
+        <h3>Net-Metering Integration</h3>
+        <p>Complete alignment with regional net-metering policy and utility interconnection requirements — handled as part of the core scope.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18M8 17V10M13 17V6M18 17v-4"/></svg></div>
+        <h3>Turnkey Solar Solutions</h3>
+        <p>Single point of accountability from audit through commissioning — one engineering team, one scope, one warranty.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <h3>Real-Time Monitoring &amp; Dashboards</h3>
+        <p>Generation data and utility savings tracked continuously through integrated power dashboards, visible from any device.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20a8 8 0 1 0-8-8"/><path d="M12 4v4l3 2"/></svg></div>
+        <h3>Lifecycle Maintenance</h3>
+        <p>Scheduled panel cleaning, electrical health audits, and performance reviews that protect system output over its full lifespan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-alt" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">From The Field</div>
+      <h2>Real installations, not stock photography.</h2>
+      <p>A sample of components and deployments from UMS-engineered systems currently running in Lahore.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall reveal">
+        <img src="assets/inverter-solarmax-orion-panel.jpg" alt="SolarMax Orion Dual 6kW inverter and CFC distribution board, installed by UMS Solar Solutions" loading="lazy">
+        <span class="cap">SolarMax Orion Dual 6kW + Distribution Board</span>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="assets/inverter-itel-hybrid.jpg" alt="Hybrid inverter installation" loading="lazy">
+        <span class="cap">Hybrid Inverter Installation</span>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="assets/inverter-solarmax-onyx.jpg" alt="SolarMax Onyx Ultra 6kW inverter, actively monitoring" loading="lazy">
+        <span class="cap">SolarMax Onyx Ultra 6kW — Active</span>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="assets/hybrid-system-battery-tight.jpg" alt="Dyness lithium battery storage paired with a hybrid inverter" loading="lazy">
+        <span class="cap">Lithium Battery Backup — Dyness Storage</span>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="assets/panel-array-closeup.jpg" alt="Close-up of Tier-1 solar PV cell array" loading="lazy">
+        <span class="cap">Tier-1 PV Array — Close Detail</span>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="assets/install-night-crew.jpg" alt="UMS engineering crew completing a rooftop mounting installation at dusk" loading="lazy">
+        <span class="cap">On-Site Deployment — Precision Mounting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="process">
+  <svg class="panel-motif" viewBox="0 0 400 260" aria-hidden="true">
+    <path d="M20 200 L200 60 L380 200 Z"/>
+    <path d="M60 200 L200 90 L340 200"/>
+    <path d="M100 200 L200 120 L300 200"/>
+    <path d="M140 200 L200 150 L260 200"/>
+    <line x1="200" y1="60" x2="200" y2="200"/>
+    <path d="M170 220 h60 M180 220 v14 M220 220 v14 M175 234 h50"/>
+  </svg>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Working Process</div>
+      <h2>A fixed four-phase sequence. No shortcuts skipped.</h2>
+      <p>Every UMS project runs through the same engineering discipline, regardless of scale.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-item reveal">
+        <div class="process-num mono">PHASE&nbsp;01</div>
+        <div>
+          <h3>Audit, Diagnostics &amp; System Design</h3>
+          <p>Site evaluation, shading analysis, and historical utility bill tracking establish an exact baseline. PV layouts are drafted against structural weight capacity and optimal solar radiation angle — not generic templates.</p>
+        </div>
+      </div>
+      <div class="process-item reveal">
+        <div class="process-num mono">PHASE&nbsp;02</div>
+        <div>
+          <h3>Hardware Sourcing &amp; Compliance</h3>
+          <p>Tier-1 high-efficiency panels, instrumentation-grade electronics, high-end inverters, and weather-resistant mounting hardware — sourced in full alignment with net-metering policy and international safety standards.</p>
+        </div>
+      </div>
+      <div class="process-item reveal">
+        <div class="process-num mono">PHASE&nbsp;03</div>
+        <div>
+          <h3>Precision Deployment &amp; Smart Integration</h3>
+          <p>Physical and electrical installation executed by certified engineering crews, followed by integration of real-time power dashboards to measure generation (kWh) and log utility savings from day one.</p>
+        </div>
+      </div>
+      <div class="process-item reveal">
+        <div class="process-num mono">PHASE&nbsp;04</div>
+        <div>
+          <h3>Lifecycle Maintenance &amp; Optimization</h3>
+          <p>Planned maintenance agreements, precise panel cleaning protocols, and electrical health audits protect system longevity long after commissioning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-alt" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Why UMS Solar Solutions</div>
+      <h2>Four commitments that shape every design decision.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="mark mono">01 — CLIMATE</div>
+        <h3>Accelerate Decarbonization</h3>
+        <p>Systematically lower grid dependence and reduce emissions by replacing conventional power with clean, data-verified solar infrastructure.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="mark mono">02 — RETURNS</div>
+        <h3>Maximize Financial ROI</h3>
+        <p>System performance optimized through elite engineering to drastically reduce operational energy costs and secure a swift payback period.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="mark mono">03 — RESILIENCE</div>
+        <h3>Advance Energy Independence</h3>
+        <p>Consistent, self-sustaining hybrid or off-grid energy storage configurations for high-end residential estates and industrial operations.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="mark mono">04 — DESIGN</div>
+        <h3>Aesthetic &amp; Structural Harmony</h3>
+        <p>Premium arrays integrated seamlessly into modern architecture, with clean installation metrics that match the building's own standard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="estimate">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Maximize Financial ROI</div>
+      <h2>See what your current bill could become.</h2>
+      <p>A quick, indicative estimate based on typical self-consumption offset for UMS-engineered systems. Your exact numbers are confirmed after a free site audit.</p>
+    </div>
+    <div class="estimator reveal">
+      <div class="estimator-input">
+        <label for="billRange">Current average monthly electricity bill</label>
+        <div class="estimator-field">
+          <span>PKR</span>
+          <input type="number" id="billInput" value="45000" min="5000" max="500000" step="1000">
+        </div>
+        <input type="range" id="billRange" class="estimator-slider" min="5000" max="200000" step="1000" value="45000">
+        <p class="estimator-hint">Drag the slider or type an exact figure.</p>
+      </div>
+      <div class="estimator-output">
+        <div class="eo-label">Indicative Monthly Savings</div>
+        <div class="estimator-range">PKR <span id="savingsLow">24,750</span> – <span id="savingsHigh">36,000</span></div>
+        <p class="estimator-sub" id="offsetLabel">Based on a 55%–80% self-consumption offset, typical for hybrid systems sized to your load profile.</p>
+        <a href="#contact" class="btn btn-primary btn-sm" style="width:fit-content;">Get an Exact Quote</a>
+        <p class="estimator-disclaimer">Indicative only — not a formal quotation. Actual savings depend on roof orientation, shading, load profile, system sizing, and whether net-metering is available at your site. Confirmed in writing after a free engineering site audit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Get Started</div>
+        <h2 style="font-size:clamp(26px,3vw,34px); margin-top:14px;">Request a site audit.</h2>
+        <p style="color:var(--text-muted); margin-top:14px; font-size:15px; max-width:440px;">
+          Share your property type and current utility bill, and our engineering team will
+          scope a precision PV or hybrid design suited to your load profile.
+        </p>
+        <ul class="contact-list">
+          <li><span class="k mono">Email</span><a href="mailto:umssolarsolution@gmail.com">umssolarsolution@gmail.com</a></li>
+          <li><span class="k mono">Location</span><span>Lahore, Pakistan</span></li>
+          <li><span class="k mono">WhatsApp</span><a href="https://wa.me/923214920052" target="_blank" rel="noopener">0321 4920052 — Chat with our team</a></li>
+          <li><span class="k mono">Google</span><a href="https://share.google/DUrsaawCcJJmmoAnS" target="_blank" rel="noopener">View our Google Business Profile</a></li>
+        </ul>
+        <div class="social-row">
+          <a href="https://www.facebook.com/share/1HU7CGzD93/" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12"/></svg></a>
+          <a href="https://www.instagram.com/ums_solar99/" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        </div>
+      </div>
+      <form class="form-panel" id="auditForm">
+        <div class="form-row"><label for="name">Full name</label><input id="name" name="name" type="text" required></div>
+        <div class="form-row"><label for="phone">Phone / WhatsApp</label><input id="phone" name="phone" type="tel" required></div>
+        <div class="form-row">
+          <label for="ptype">Property type</label>
+          <select id="ptype" name="ptype"><option>Residential</option><option>Commercial</option><option>Industrial</option></select>
+        </div>
+        <div class="form-row"><label for="bill">Approx. monthly bill (PKR)</label><input id="bill" name="bill" type="text" placeholder="e.g. 45,000"></div>
+        <div class="form-row"><label for="msg">Notes</label><textarea id="msg" name="msg" placeholder="Hybrid, net-metering, battery backup, timeline, etc."></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Send Request</button>
+        <p class="form-note">This form currently sends no data on its own — connect it to Formspree, Getform, or a mailto action before publishing.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-brand">
+        <img src="assets/logo-mark.png" alt="UMS Solar Solutions">
+        <p>© <span id="year"></span> UMS Solar Solutions. Engineered under Engr. H. M. Mehran Tariq.</p>
+      </div>
+      <p>Lahore, Pakistan</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.style.display === 'block';
+    mobileMenu.style.display = isOpen ? 'none' : 'block';
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+  document.querySelectorAll('#mobileMenu a').forEach(a => {
+    a.addEventListener('click', () => { mobileMenu.style.display = 'none'; });
+  });
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.cell-grid').forEach(grid => {
+    const totalCells = 40;
+    for (let i = 0; i < totalCells; i++) {
+      const c = document.createElement('div');
+      c.className = 'cell';
+      if (!reduceMotion) c.style.setProperty('--i', i);
+      grid.appendChild(c);
+    }
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.getElementById('auditForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('This form is not yet connected to an inbox.\nSee the comment in index.html — connect Formspree/Getform, or replace with a mailto: action.');
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  (function(){
+    const input  = document.getElementById('billInput');
+    const range  = document.getElementById('billRange');
+    const outLow = document.getElementById('savingsLow');
+    const outHigh = document.getElementById('savingsHigh');
+    if (!input || !range) return;
+    const LOW_FACTOR = 0.55;
+    const HIGH_FACTOR = 0.80;
+    const fmt = n => Math.round(n).toLocaleString('en-PK');
+    function update(bill) {
+      const b = Math.max(0, Number(bill) || 0);
+      outLow.textContent = fmt(b * LOW_FACTOR);
+      outHigh.textContent = fmt(b * HIGH_FACTOR);
+    }
+    input.addEventListener('input', () => {
+      let v = Number(input.value) || 0;
+      range.value = Math.min(Math.max(v, range.min), range.max);
+      update(v);
+    });
+    range.addEventListener('input', () => {
+      input.value = range.value;
+      update(range.value);
+    });
+    update(input.value);
+  })();
+</script>
+
+</body>
+</html>
